@@ -1,5 +1,0 @@
-confluent-kafka
-confluent-kafka[avro]
-avro
-requests
-
