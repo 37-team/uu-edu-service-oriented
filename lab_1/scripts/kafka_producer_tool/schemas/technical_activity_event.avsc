@@ -1,0 +1,1192 @@
+{
+  "type": "record",
+  "name": "ActivityTechnicalEvent",
+  "namespace": "com.sap.fsm.data.event.technical",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String",
+        "logicalType": "UUID"
+      }
+    },
+    {
+      "name": "accountId",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "companyId",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "userId",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "producerVersion",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "producerName",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "tracing",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "type",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "time",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "topic",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "data",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "ActivityData",
+          "namespace": "com.sap.fsm.data.event.technical.data",
+          "fields": [
+            {
+              "name": "changeType",
+              "type": [
+                "null",
+                {
+                  "type": "enum",
+                  "name": "TechnicalEventChangeType",
+                  "namespace": "com.sap.fsm.data.event.technical",
+                  "symbols": [
+                    "CREATE",
+                    "UPDATE",
+                    "DELETE"
+                  ]
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "objectId",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "objectType",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "before",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "ActivityDto",
+                  "namespace": "com.sap.fsm.data.event.dto",
+                  "fields": [
+                    {
+                      "name": "activityTemplate",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "address",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "autoSchedulingError",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "autoSchedulingStatus",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "batchRequestId",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "branches",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.Set"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "businessPartner",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "businessProcessStepAssignments",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "record",
+                            "name": "BusinessProcessStepAssignment",
+                            "namespace": "com.sap.fsm.data.event.common",
+                            "fields": [
+                              {
+                                "name": "id",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              },
+                              {
+                                "name": "createDateTime",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              },
+                              {
+                                "name": "completed",
+                                "type": [
+                                  "null",
+                                  "boolean"
+                                ],
+                                "default": null
+                              }
+                            ]
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.List"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "cancellationReason",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "changelog",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "checkedOut",
+                      "type": [
+                        "null",
+                        "boolean"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "code",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "contact",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "createDateTime",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "createPerson",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "deleted",
+                      "type": [
+                        "null",
+                        "boolean"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "dueDateTime",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "durationInMinutes",
+                      "type": [
+                        "null",
+                        "int"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "earliestStartDateTime",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "endDateTime",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "equipment",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "executionStage",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "externalId",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "groups",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.Set"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "hazardType",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "id",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "inactive",
+                      "type": [
+                        "null",
+                        "boolean"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "internalRemarks",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "internalRemarks2",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "lastChanged",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "lastChangedBy",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "lastChangedByClientId",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "lastChangedByClientVersion",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "lastChangedNonAutomergeableFields",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "latestStartDateTime",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "location",
+                      "type": [
+                        "null",
+                        {
+                          "type": "record",
+                          "name": "Location",
+                          "namespace": "com.sap.fsm.data.event.common",
+                          "fields": [
+                            {
+                              "name": "latitude",
+                              "type": [
+                                "null",
+                                "double"
+                              ],
+                              "default": null
+                            },
+                            {
+                              "name": "longitude",
+                              "type": [
+                                "null",
+                                "double"
+                              ],
+                              "default": null
+                            }
+                          ]
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "milestone",
+                      "type": [
+                        "null",
+                        "boolean"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "number",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "object",
+                      "type": [
+                        "null",
+                        {
+                          "type": "record",
+                          "name": "ObjectRef",
+                          "namespace": "com.sap.fsm.data.event.common",
+                          "fields": [
+                            {
+                              "name": "objectId",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "string",
+                                  "avro.java.string": "String"
+                                }
+                              ],
+                              "default": null
+                            },
+                            {
+                              "name": "objectType",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "string",
+                                  "avro.java.string": "String"
+                                }
+                              ],
+                              "default": null
+                            }
+                          ]
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "obsoleted",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "orgLevel",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "owners",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.Set"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "personal",
+                      "type": [
+                        "null",
+                        "boolean"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "plannedDurationInMinutes",
+                      "type": [
+                        "null",
+                        "int"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "plannedDurationType",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "predecessorActivities",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.List"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "previousActivity",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "productExternalId",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "project",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "projectOrdinal",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "projectPhase",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "region",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "remarks",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "reminderDateTime",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "responsibles",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.Set"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "scope",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "serviceWorkflow",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "shift",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "sourceActivity",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "startDateTime",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "status",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "statusChangeReason",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "subType",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "subject",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "supportingPersons",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.Set"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "syncObjectKPIs",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "record",
+                            "name": "SyncObjectKPI",
+                            "namespace": "com.sap.fsm.data.event.common",
+                            "fields": [
+                              {
+                                "name": "additionalInformation",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              },
+                              {
+                                "name": "cloudDataType",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              },
+                              {
+                                "name": "description",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              },
+                              {
+                                "name": "value",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              }
+                            ]
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.Set"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "syncStatus",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "team",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "timeZoneId",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "topic",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "travelTimeFromInMinutes",
+                      "type": [
+                        "null",
+                        "int"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "travelTimeToInMinutes",
+                      "type": [
+                        "null",
+                        "int"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "type",
+                      "type": [
+                        "null",
+                        {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "udfMetaGroups",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.Set"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "udfValues",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "record",
+                            "name": "UdfValue",
+                            "namespace": "com.sap.fsm.data.event.common",
+                            "fields": [
+                              {
+                                "name": "meta",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              },
+                              {
+                                "name": "key",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              },
+                              {
+                                "name": "value",
+                                "type": [
+                                  "null",
+                                  {
+                                    "type": "string",
+                                    "avro.java.string": "String"
+                                  }
+                                ],
+                                "default": null
+                              }
+                            ]
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.List"
+                      },
+                      "default": []
+                    },
+                    {
+                      "name": "useAllEquipments",
+                      "type": [
+                        "null",
+                        "boolean"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "trimmedFields",
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          },
+                          "null"
+                        ],
+                        "java-class": "java.util.Set"
+                      },
+                      "default": []
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "after",
+              "type": [
+                "null",
+                "com.sap.fsm.data.event.dto.ActivityDto"
+              ],
+              "default": null
+            },
+            {
+              "name": "changedFields",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "avro.java.string": "String"
+                  }
+                }
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "default": null
+    }
+  ],
+  "com.sap.fsm.avro.envelope": "true"
+}

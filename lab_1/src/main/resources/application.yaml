@@ -1,0 +1,70 @@
+application:
+  name: "cloud-ai-read-model"
+  instance-id: "${random.uuid}"
+  version: @project.version@
+  maintainer: sagittarius
+caches:
+  expire-seconds:
+    active-tenant: 10
+server:
+  port: 8080
+  error:
+    include-message: always
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 30
+      # check whether datasource can be removed with parent 3.9.0
+      data-source-properties:
+        sslmode: verify-ca
+        sslfactory: org.postgresql.ssl.DefaultJavaSSLFactory
+starter-db:
+  multitenancy: SCHEMA_PER_COMPANY
+starter-events:
+  consumer:
+    filter:
+      enabled: true
+starter-management:
+  security:
+    enable: true
+starter-tenant-management:
+  cleanup:
+    enabled: true
+
+# This section includes all properties related to external service API calls
+service:
+  master:
+    host: http://master/
+  holiday:
+    cache:
+      metrics:
+        enabled: true
+      initial: 1000
+      max: 10000
+    host: http://cloud-holiday-calendar-service:80
+    futureTimeoutMs: 20000
+  partner-dispatch:
+    cache:
+      metrics:
+        enabled: true
+      initial: 1000
+      max: 10000
+    host: http://cloud-partner-dispatch-service:80
+    futureTimeoutMs: 20000
+  techevents:
+    url: http://cloud-techevents-service/
+    username: ${API_INTERNAL_TECHEVENTS_USERNAME}
+    password: ${API_INTERNAL_TECHEVENTS_PASSWORD}
+  query-api:
+    host: http://data:80
+    page-size: 1000
+  skill:
+    host: http://cloud-skill-service/
+
+webClient:
+  readWriteTimeoutMs: 20000
+
+cloud-ai-read-model:
+  kafka:
+    technical-events.concurrency: ${KAFKA_TECHNICAL_EVENTS_CONCURRENCY:1}
+    snapshot-events.concurrency: ${SNAPSHOT_EVENTS_CONCURRENCY:1}

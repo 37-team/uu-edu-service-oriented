@@ -1,0 +1,4 @@
+application:
+  name: "cloud-ai-read-model"
+  instance-id: "${random.uuid}"
+  version: @project.version@

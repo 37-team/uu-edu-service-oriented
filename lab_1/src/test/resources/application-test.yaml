@@ -1,0 +1,71 @@
+application:
+  name: "cloud-ai-read-model"
+  instance-id: "${random.uuid}"
+  version: "test-version"
+  cluster: test
+caches:
+  expire-seconds:
+    # warning! increasing this value will result in slower test execution
+    active-tenant: 3
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration
+  zipkin:
+    base-url: http://localhost:9411
+  datasource:
+    hikari:
+      data-source-properties:
+        sslmode: disable
+        sslfactory: org.postgresql.ssl.NonValidatingFactory
+starter-events:
+  kafka:
+    enabled: false
+  monitoring:
+    enabled: false
+  mock-schema-registry-client: true
+starter-management:
+  security:
+    enable: false
+starter-tenant-management:
+  sync:
+    sync-empty-table: false
+starter-db:
+  multitenancy: SCHEMA_PER_COMPANY
+  ### test for liveness and readiness groups
+  ### @see ActuatorApiTest#testGetHealthWithoutRestrictionsUnauthenticated
+  ### Spring Documentation : https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.endpoints.kubernetes-probes
+starter-tracing:
+  enabled: false
+# This section includes all properties related to external service API calls
+starter-feature-flag:
+  enabled: false
+service:
+  master:
+    host: https://localhost/ #to be mocked in tests
+  holiday:
+    cache:
+      metrics:
+        enabled: false
+    host: ""
+    timeoutInMs: 5000
+  partner-dispatch:
+    cache:
+      metrics:
+        enabled: false
+    host: ""
+    timeoutInMs: 5000
+  techevents:
+    url: http://cloud-techevents-service/
+    username: test-username
+    password: test-password
+  query-api:
+    host: ""
+    page-size: 3
+
+# Uncomment to log all sql statements sent to the db
+#logging:
+#  level:
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.type: TRACE
+#    org.springframework.jdbc.core: TRACE

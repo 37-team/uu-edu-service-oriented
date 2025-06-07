@@ -1,0 +1,17 @@
+{
+  "id": "FILLED_INSIDE_TEST",
+  "accountId": 123456,
+  "companyId": 98765,
+  "userId": 546372,
+  "producerVersion": "v1",
+  "producerName": "BaseEventMockBuilder",
+  "tracing": "FILLED_INSIDE_TEST",
+  "type": "Test",
+  "time": "FILLED_INSIDE_TEST",
+  "topic": "FILLED_INSIDE_TEST",
+  "data": {
+    "changeType": "CREATE",
+    "objectId": "objectId_1",
+    "objectType": "objectType_1"
+  }
+}
